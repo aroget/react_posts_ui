@@ -6,19 +6,40 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 class DialogAddImage extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      file: null
+    }
 
-  handleOpen = () => {
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({file: event.target.files[0]});
+    // this.props.handleAddMedia(event.target.files[0]);
+  }
+
+  handleOpen() {
     this.setState({ open: true });
   };
 
-  handleClose = () => {
+  handleClose() {
     this.setState({ open: false });
   };
 
+  handleSubmit() {
+    this.props.handleAddMedia(this.state.file);
+    this.handleClose();
+  }
+
   render() {
+    const isSubmitDisabled = !this.state.file ? true : false;
+
     const addButtonStyles = {
       position: 'fixed',
       bottom: '30px',
@@ -34,8 +55,8 @@ class DialogAddImage extends React.Component {
       <FlatButton
         label="Submit"
         primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose}
+        disabled={isSubmitDisabled}
+        onTouchTap={this.handleSubmit}
       />,
     ];
 
@@ -55,8 +76,8 @@ class DialogAddImage extends React.Component {
           modal={true}
           open={this.state.open}
         >
-          Only JPG or PNG max 5MB
-          <input type="file"/>
+          <p>Only JPG or PNG max 5MB</p>
+          <input type="file" onChange={this.handleChange}/>
         </Dialog>
       </div>
     );

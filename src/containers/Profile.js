@@ -1,7 +1,7 @@
 import React from 'react'
 import FlatButton from 'material-ui/FlatButton';
 import LinearProgress from 'material-ui/LinearProgress';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardActions, CardHeader } from 'material-ui/Card';
 
 import { API } from '../config/api';
 import { BaseService } from '../base/base.service';
@@ -20,9 +20,7 @@ class componentName extends React.Component {
   componentWillMount() {
     let data = this.service.get(`${API.RESOURCES.PROFILE}`);
     data.then(res => {
-      console.log(res);
       this.profile = res;
-      this.loading = false;
       this.setState({ loading: false });
     })
   }
@@ -35,29 +33,18 @@ class componentName extends React.Component {
     return (
       <Card>
         <CardHeader
-          title="URL Avatar"
-          subtitle={this.profile.email}
+          title={`${this.profile.first_name} ${this.profile.last_name}`}
           avatar={this.profile.avatar}
-        />
-        <CardMedia
-          overlay={<CardTitle title={`${this.profile.first_name} ${this.profile.last_name}`} subtitle={this.profile.email} />}
-        >
-          <img src={this.profile.avatar} alt={`${this.profile.first_name} ${this.profile.last_name}`}/>
-        </CardMedia>
-        <CardTitle title="Card title" subtitle="Card subtitle" />
-        <CardText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
+          subtitle={this.profile.email}/>
+
         <CardActions>
-          <FlatButton label="Action1" />
-          <FlatButton label="Action2" />
+          <FlatButton label="Update" />
         </CardActions>
       </Card>
     )
   }
 }
+
+
 
 export default componentName

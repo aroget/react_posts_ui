@@ -1,9 +1,12 @@
-const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImV4cCI6MTQ5NTAxNTk3MSwiaWF0IjoxNDk0OTI5NTcxfQ.jmfbDosjVpoIVjrviUv3-JA6KrLDeEQ0hdVnvlVJams';
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0OTUwMTYxMTcsImV4cCI6MTQ5NTEwMjUxNywic3ViIjoyfQ.EKRjmBuh7sq47zzxDmfSqy3_BHGjLMppiLdpNw2B9pY';
 
 const API_URL = 'https://ar-flask-posts-api.herokuapp.com';
 
 const API_RESOURCES = {
+  'TAGS': 'tags',
+  'POST': 'post',
   'POSTS': 'posts',
+  'MEDIA': 'media',
   'ROLES': 'roles',
   'PROFILE': 'profile'
 }

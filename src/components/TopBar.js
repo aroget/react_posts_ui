@@ -32,7 +32,14 @@ class TopBar extends React.Component {
           <MenuItem onTouchTap={this.handleClose}>
             <Link to='/'>
               <FlatButton primary={true}>
-                Home
+                Posts
+              </FlatButton>
+            </Link>
+          </MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>
+            <Link to='/create'>
+              <FlatButton primary={true}>
+                New Post
               </FlatButton>
             </Link>
           </MenuItem>

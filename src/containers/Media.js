@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import LinearProgress from 'material-ui/LinearProgress';
 
-
+import { API } from '../config/api';
 import CardImage from '../components/CardImage';
 import { BaseService } from '../base/base.service';
 import DialogAddImage from '../components/DialogAddImage';
 
-class Media extends Component {
+class Media extends React.Component {
   service;
 
   constructor(props) {
@@ -18,21 +18,26 @@ class Media extends Component {
       loading: true,
       media: []
     }
+
+    this.onHandleAddMedia = this.onHandleAddMedia.bind(this);
   }
 
-  componentWillMount () {
-    let fetch = this.service.get('media');
+  componentWillMount() {
+    let fetch = this.service.get(API.RESOURCES.MEDIA);
+
     fetch.then(media => {
       this.setState({
         media: media.response,
         loading: false
       });
-      console.log(media.response);
     });
   }
 
-  handleAddMedia = () => {
-    console.log('adding');
+  onHandleAddMedia(file) {
+    let post = this.service.postMedia(file, API.RESOURCES.MEDIA);
+    post
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 
 
@@ -48,7 +53,7 @@ class Media extends Component {
     return (
       <div>
         {media}
-        <DialogAddImage />
+        <DialogAddImage handleAddMedia={this.onHandleAddMedia}/>
       </div>
     )
   }

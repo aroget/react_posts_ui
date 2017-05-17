@@ -8,6 +8,8 @@ import Login from './containers/Login';
 import Posts from './containers/Posts';
 import Media from './containers/Media';
 import Profile from './containers/Profile';
+import Compose from './containers/Compose';
+import PostDetails from './containers/PostDetails';
 
 import TopBar from './components/TopBar'
 
@@ -27,9 +29,11 @@ class App extends React.Component {
             <TopBar/>
             <div style={container}>
               <Route exact path="/" component={Posts}/>
-              <Route exact path="/login" component={Login}/>
-              <Route exact path="/media" component={Media}/>
-              <Route exact path="/profile" component={Profile}/>
+              <Route path="/post/:id" component={PostDetails}/>
+              <Route path="/create" component={Compose}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/media" component={Media}/>
+              <Route path="/profile" component={Profile}/>
             </div>
           </div>
         </Router>
