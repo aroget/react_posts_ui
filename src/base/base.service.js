@@ -1,82 +1,35 @@
+import axios from 'axios';
 import { API } from '../config/api';
 
+axios.defaults.headers.common['Authorization'] = `Token ${API.TOKEN}`;
+
 export class BaseService {
-
-  buildHeaders() {
-    let headers = new Headers();
-
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', `Token ${API.TOKEN}`);
-
-    const options = {
-      headers: headers
-    }
-
-    return options;
-  }
-
   get(endpoint) {
-    let options = this.buildHeaders();
-    options = Object.assign({}, options, { method: 'GET' });
+    let options = { headers: { 'Content-Type': 'application/json' }}
 
-    return new Promise((resolve, reject) => {
-      fetch(`${API.URL}/${endpoint}`, options)
-        .then(res => resolve(res.json()))
-        .catch(err => reject(err));
-    })
+    return axios.get(`${API.URL}/${endpoint}`, options);
   }
 
   delete(endpoint) {
-    let options = this.buildHeaders();
-    options = Object.assign({}, options, { method: 'DELETE' });
+    let options = { headers: { 'Content-Type': 'application/json' }}
 
-    return new Promise((resolve, reject) => {
-      fetch(`${API.URL}/${endpoint}`, options)
-        .then(res => resolve(res.json()))
-        .catch(err => reject(err));
-    })
+    return axios.delete(`${API.URL}/${endpoint}`, options);
   }
 
   post(data, endpoint) {
-    let options = this.buildHeaders();
-    options = Object.assign(
-      {},
-      options,
-      {
-        method: 'POST',
-        processData: false,
-        contentType: false,
-        mimeType: 'multipart/form-data',
-        body: JSON.stringify(data)
-      }
-    );
+    let options = { headers: { 'Content-Type': 'application/json' }}
 
-    return new Promise((resolve, reject) => {
-      fetch(`${API.URL}/${endpoint}`, options)
-        .then(res => resolve(res.json()))
-        .catch(err => reject(err));
-    })
+    return axios.post(`${API.URL}/${endpoint}`, JSON.stringify(data), options);
   }
 
   postMedia(media, endpoint) {
-    let headers = new Headers();
+    let options = { headers: { 'Content-Type': 'application/json' }}
+
     let formData = new FormData();
 
     formData.append('file', media);
 
-    headers.append('Authorization', `Token ${API.TOKEN}`);
-
-    const options = {
-      method: 'POST',
-      headers: headers,
-      body: formData
-    }
-
-    return new Promise((resolve, reject) => {
-      fetch(`${API.URL}/${endpoint}`, options)
-        .then(res => resolve(res.json()))
-        .catch(err => reject(err));
-    })
+    return axios.post(`${API.URL}/${endpoint}`, formData,  options);
   }
 }
 

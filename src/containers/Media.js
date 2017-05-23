@@ -27,7 +27,7 @@ class Media extends React.Component {
 
     fetch.then(media => {
       this.setState({
-        media: media.response,
+        media: media.data.response,
         loading: false
       });
     });

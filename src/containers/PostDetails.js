@@ -22,7 +22,7 @@ class PostDetails extends React.Component {
 
     fetch
       .then(res => {
-        this.post = res.response;
+        this.post = res.data.response;
         this.setState({ loading: false });
       })
       .catch(err => console.log(err));

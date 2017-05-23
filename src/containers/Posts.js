@@ -1,7 +1,9 @@
 import React from 'react'
 
-import { BaseService } from '../base/base.service';
 import CardPost from '../components/CardPost'
+import {List, ListItem} from 'material-ui/List';
+import { BaseService } from '../base/base.service';
+
 
 class Posts extends React.Component {
   service;
@@ -17,8 +19,7 @@ class Posts extends React.Component {
   componentWillMount() {
     let fetch = this.service.get('posts?is_published=1&is_archived=0');
     fetch.then(posts => {
-      this.setState({ posts : posts.response });
-      console.log(posts.response);
+      this.setState({ posts : posts.data.response });
     });
   }
 
@@ -29,7 +30,7 @@ class Posts extends React.Component {
     }
 
     let posts = this.state.posts.map(post => {
-      return <li key={post.id}><CardPost id={post.id} title={post.title} published_date={post.published_date}/></li>
+      return <List key={post.id}><ListItem hoverColor={'transparent'}><li><CardPost id={post.id} title={post.title} published_date={post.published_date}/></li></ListItem></List>
     })
     return (
       <ul style={ulStyles}>

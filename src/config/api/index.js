@@ -1,4 +1,4 @@
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0OTUwMTYxMTcsImV4cCI6MTQ5NTEwMjUxNywic3ViIjoyfQ.EKRjmBuh7sq47zzxDmfSqy3_BHGjLMppiLdpNw2B9pY';
+const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTU1MzUzODMsInN1YiI6MiwiaWF0IjoxNDk1NDQ4OTgzfQ.x8loSH5epbZiP84BSbfFVhVeTM8f25sNAwY_3rGOf8Y';
 
 const API_URL = 'https://ar-flask-posts-api.herokuapp.com';
 

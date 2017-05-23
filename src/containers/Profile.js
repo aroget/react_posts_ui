@@ -20,7 +20,7 @@ class componentName extends React.Component {
   componentWillMount() {
     let data = this.service.get(`${API.RESOURCES.PROFILE}`);
     data.then(res => {
-      this.profile = res;
+      this.profile = res.data;
       this.setState({ loading: false });
     })
   }

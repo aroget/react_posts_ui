@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
@@ -22,7 +23,7 @@ class TopBar extends React.Component {
         <AppBar
           title="Posts App"
           onLeftIconButtonTouchTap={this.handleToggle}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+          iconElementRight={<Link to='/create'><RaisedButton secondary={true} label="New Post"></RaisedButton></Link>}/>
 
         <Drawer
           docked={false}
