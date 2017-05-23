@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -18,10 +19,15 @@ class TopBar extends React.Component {
   handleClose = () => this.setState({open: false});
 
   render () {
+    const styles = {
+      icon: {
+        color: '#fff'
+      }
+    }
     return (
       <div>
         <AppBar
-          title="Posts App"
+          title={<FontIcon className="material-icons" style={styles.icon}>whatshot</FontIcon>}
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<Link to='/create'><RaisedButton secondary={true} label="New Post"></RaisedButton></Link>}/>
 
