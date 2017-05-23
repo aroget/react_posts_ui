@@ -1,6 +1,6 @@
-const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTU1MzUzODMsInN1YiI6MiwiaWF0IjoxNDk1NDQ4OTgzfQ.x8loSH5epbZiP84BSbfFVhVeTM8f25sNAwY_3rGOf8Y';
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0OTU1MzczMjIsInN1YiI6MiwiZXhwIjoxNDk1NjIzNzIyfQ.7Sc90Plyey817wYquOqRNAVsZh5aS7SPDTUlrnMLHDc';
 
-const API_URL = 'https://ar-flask-posts-api.herokuapp.com';
+const API_URL = 'http://127.0.0.1:5000';
 
 const API_RESOURCES = {
   'TAGS': 'tags',

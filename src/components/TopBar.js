@@ -32,28 +32,21 @@ class TopBar extends React.Component {
           onRequestChange={(open) => this.setState({open})}>
           <MenuItem onTouchTap={this.handleClose}>
             <Link to='/'>
-              <FlatButton primary={true}>
+              <FlatButton hoverColor={'transparent'}>
                 Posts
               </FlatButton>
             </Link>
           </MenuItem>
           <MenuItem onTouchTap={this.handleClose}>
-            <Link to='/create'>
-              <FlatButton primary={true}>
-                New Post
-              </FlatButton>
-            </Link>
-          </MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>
             <Link to='/media'>
-              <FlatButton primary={true}>
+              <FlatButton hoverColor={'transparent'}>
                 Media
               </FlatButton>
             </Link>
           </MenuItem>
           <MenuItem onTouchTap={this.handleClose}>
             <Link to='/profile'>
-              <FlatButton primary={true}>
+              <FlatButton hoverColor={'transparent'}>
                 Profile
               </FlatButton>
             </Link>

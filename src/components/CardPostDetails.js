@@ -4,10 +4,6 @@ import FlatButton from 'material-ui/FlatButton';
 
 class CardPostDetail extends React.Component {
 
-  componentWillMount () {
-    console.log(this.props)
-  }
-
   render() {
     let hero_image = this.props.hero_image ? this.props.hero_image : 'https://source.unsplash.com/random/700x300';
     return (
@@ -15,7 +11,7 @@ class CardPostDetail extends React.Component {
           <Card>
           <CardHeader
             title={this.props.title}
-            subtitle={this.props.author}
+            subtitle={`${this.props.author.first_name} ${this.props.author.last_name}`}
             avatar={this.props.hero_image}
           />
           <CardMedia>
