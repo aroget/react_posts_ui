@@ -20,14 +20,19 @@ class TopBar extends React.Component {
 
   render () {
     const styles = {
+      mobileWrapper: {
+        backgroundColor: 'rgb(0, 188, 212)',
+        padding: '15px',
+        textAlign: 'center'
+      },
       icon: {
-        color: '#fff'
+        color: '#fff',
+        fontSize: '30px'
       }
     }
     return (
       <div>
         <AppBar
-          title={<FontIcon className="material-icons" style={styles.icon}>whatshot</FontIcon>}
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<Link to='/create'><RaisedButton secondary={true} label="New Post"></RaisedButton></Link>}/>
 
@@ -36,6 +41,9 @@ class TopBar extends React.Component {
           width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}>
+          <div style={styles.mobileWrapper}>
+            <FontIcon className="material-icons" style={styles.icon}>whatshot</FontIcon>
+          </div>
           <MenuItem onTouchTap={this.handleClose}>
             <Link to='/'>
               <FlatButton hoverColor={'transparent'}>

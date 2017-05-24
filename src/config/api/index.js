@@ -9,6 +9,7 @@ const API_RESOURCES = {
   'POSTS': 'posts',
   'MEDIA': 'media',
   'ROLES': 'roles',
+  'LOGIN': 'login',
   'PROFILE': 'profile'
 }
 
