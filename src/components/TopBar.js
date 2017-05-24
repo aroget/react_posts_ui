@@ -57,6 +57,13 @@ class TopBar extends React.Component {
               </FlatButton>
             </Link>
           </MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>
+            <Link to='/tags'>
+              <FlatButton hoverColor={'transparent'}>
+                Tags
+              </FlatButton>
+            </Link>
+          </MenuItem>
         </Drawer>
       </div>
     )

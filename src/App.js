@@ -4,11 +4,13 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom'
 
+import Tags from './containers/Tags';
 import Login from './containers/Login';
 import Posts from './containers/Posts';
 import Media from './containers/Media';
 import Profile from './containers/Profile';
 import Compose from './containers/Compose';
+import PostsByTag from './containers/PostsByTag';
 import PostDetails from './containers/PostDetails';
 
 import TopBar from './components/TopBar'
@@ -29,7 +31,9 @@ class App extends React.Component {
             <TopBar/>
             <div style={container}>
               <Route exact path="/" component={Posts}/>
+              <Route path="/tags" component={Tags}/>
               <Route path="/post/:id" component={PostDetails}/>
+              <Route path="/posts/tag/:id" component={PostsByTag}/>
               <Route path="/create" component={Compose}/>
               <Route path="/login" component={Login}/>
               <Route path="/media" component={Media}/>

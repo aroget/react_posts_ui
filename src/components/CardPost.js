@@ -14,13 +14,13 @@ class CardExampleExpandable extends React.Component {
   }
 
   render() {
-    const subtitle = this.props.published_date ? this.props.published_date : 'Draft';
+
     return (
       <div>
         <Card>
           <CardHeader
             title={this.props.title}
-            subtitle={subtitle}
+            subtitle={`${this.props.author.first_name} ${this.props.author.last_name}`}
           />
           <CardActions>
             <Link to={`/post/${this.props.id}`}><FlatButton primary={true}>View More</FlatButton></Link>

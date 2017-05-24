@@ -1,8 +1,9 @@
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0OTU1MzczMjIsInN1YiI6MiwiZXhwIjoxNDk1NjIzNzIyfQ.7Sc90Plyey817wYquOqRNAVsZh5aS7SPDTUlrnMLHDc';
+const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImV4cCI6MTQ5NTcxMDQzMCwiaWF0IjoxNDk1NjI0MDMwfQ.tNFZ1LWc9rXhpCw9EWOfb-8JD2H92gbwhXvAy-1duSk';
 
 const API_URL = 'http://127.0.0.1:5000';
 
 const API_RESOURCES = {
+  'TAG': 'tag',
   'TAGS': 'tags',
   'POST': 'post',
   'POSTS': 'posts',
