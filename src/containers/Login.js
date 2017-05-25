@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -17,6 +17,7 @@ class Login extends Component {
     this.state = {
       username: null,
       password: null,
+      isRedirect: false
     }
   }
 
@@ -37,11 +38,21 @@ class Login extends Component {
       .then(res => {
         let token = res.data.token;
         appStorage.set(appStorage.keys.TOKEN, token);
-        auth.authenticate()
+        auth.login()
+        this.setState({ isRedirect: true });
       })
       .catch(err => console.log(err))
   }
   render() {
+    if (this.state.isRedirect) {
+      return (
+        <Redirect to={
+          {
+            pathname: '/',
+          }
+        }/>
+      )
+    }
     const styles = {
       input: {
         display: 'block',

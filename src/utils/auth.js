@@ -1,11 +1,11 @@
 export const auth = {
   isAuthenticated: false,
-  authenticate(cb) {
+
+  login() {
     this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
   },
-  signout(cb) {
+
+  logout() {
     this.isAuthenticated = false
-    setTimeout(cb, 100)
   }
 }
